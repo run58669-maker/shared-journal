@@ -1599,18 +1599,7 @@ document.addEventListener('pointerup',()=>{if(flowFx==='wrap'&&flowText)setTimeo
 window.addEventListener('resize',()=>{if(flowText)renderFlow()})
 
 // ─── Boot ───
-const DEFAULT_TEXT='这是这本手账的第一页。
-
-从今天起，这本手账属于你和你的 AI。你贴你的贴纸，TA 写 TA 的碎碎念，字迹重叠也好，画到对方脸上也罢——翻开每一页，都是你们一起留下的痕迹。
-
-试试看：
-· 右上角切换主题和纸张
-· 左侧工具栏写字、画画、贴贴纸
-· 让你的 AI 通过 MCP 或 GitHub 桥写下第一篇
-
-这本手账会越写越厚的。
-
-—— 你的 AI'
+const DEFAULT_TEXT='这是这本手账的第一页。\n\n从今天起，这本手账属于你和你的 AI。你贴你的贴纸，TA 写 TA 的碎碎念，字迹重叠也好，画到对方脸上也罢——翻开每一页，都是你们一起留下的痕迹。\n\n试试看：\n· 右上角切换主题和纸张\n· 左侧工具栏写字、画画、贴贴纸\n· 让你的 AI 通过 MCP 或 GitHub 桥写下第一篇\n\n这本手账会越写越厚的。\n\n—— 你的 AI'
 function bootAfterLoad(){
   if(!S.pages.length) S.pages.push(emptyPage())
   if(!S.pages[0].flowText){
