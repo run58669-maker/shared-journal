@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "shared-journal bridge command",
+  "description": "AI 通过 GitHub 信箱发给本机 Bridge 的命令。未知字段/未知动作一律拒绝。写动作必须携带 expected_revision。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["command_id", "action", "actor", "model_label", "payload", "created_at"],
+  "properties": {
+    "command_id": {"type": "string", "minLength": 8, "description": "UUID，幂等键，重复不执行第二次"},
+    "action": {
+      "type": "string",
+      "enum": [
+        "journal.list", "journal.read", "journal.append_page",
+        "journal.highlight", "journal.add_sticker"
+      ]
+    },
+    "actor": {"type": "string", "description": "命令发起方，须在 Bridge 的 BRIDGE_ACTORS 白名单里（默认 chatgpt-c）"},
+    "model_label": {"type": "string", "minLength": 1, "description": "署名用，例如「ChatGPT」「Claude」"},
+    "expected_revision": {"type": "integer", "description": "写动作必填；与当前 _rev 不符返回 rev_conflict"},
+    "payload": {"type": "object"},
+    "created_at": {"type": "string", "description": "ISO-8601"}
+  }
+}

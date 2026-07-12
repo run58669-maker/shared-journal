@@ -1,0 +1,5 @@
+data/
+state/
+bridge_repo/
+__pycache__/
+*.pyc
